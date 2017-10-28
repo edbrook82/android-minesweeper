@@ -4,11 +4,11 @@ package uk.co.dekoorb.c3469162.minesweeper.model;
  * Created by c3469162 on 27/10/2017.
  */
 
-public class MineLocation {
+public class GeoLocation {
     private double mLongitude;
     private double mLatitude;
 
-    public MineLocation(double latitude, double longitude) {
+    public GeoLocation(double latitude, double longitude) {
         mLongitude = longitude;
         mLatitude = latitude;
     }
