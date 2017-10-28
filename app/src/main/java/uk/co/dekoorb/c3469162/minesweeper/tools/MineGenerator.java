@@ -1,4 +1,4 @@
-package uk.co.dekoorb.c3469162.minesweeper.data;
+package uk.co.dekoorb.c3469162.minesweeper.tools;
 
 import java.util.ArrayList;
 

@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.util.List;
 
-import uk.co.dekoorb.c3469162.minesweeper.data.MineGenerator;
+import uk.co.dekoorb.c3469162.minesweeper.tools.MineGenerator;
 import uk.co.dekoorb.c3469162.minesweeper.model.GeoLocation;
 import uk.co.dekoorb.c3469162.minesweeper.model.Mine;
 
