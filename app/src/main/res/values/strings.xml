@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">MineSweeper</string>
+    <string name="app_name">Mines</string>
     <string name="title_activity_mine_map">Map</string>
 </resources>

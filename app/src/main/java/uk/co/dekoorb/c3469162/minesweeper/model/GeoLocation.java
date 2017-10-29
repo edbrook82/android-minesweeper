@@ -28,4 +28,14 @@ public class GeoLocation {
     public void setLatitude(double latitude) {
         this.mLatitude = latitude;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("LON:");
+        sb.append(mLongitude);
+        sb.append(", LAT:");
+        sb.append(mLatitude);
+        return sb.toString();
+    }
 }
