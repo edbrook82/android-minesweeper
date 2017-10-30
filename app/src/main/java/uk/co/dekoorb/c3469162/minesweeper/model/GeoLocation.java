@@ -32,10 +32,9 @@ public class GeoLocation {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("LON:");
-        sb.append(mLongitude);
-        sb.append(", LAT:");
         sb.append(mLatitude);
+        sb.append(", ");
+        sb.append(mLongitude);
         return sb.toString();
     }
 }

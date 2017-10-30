@@ -1,5 +1,6 @@
 package uk.co.dekoorb.c3469162.minesweeper;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -39,13 +40,17 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onListFragmentInteraction(Mine mine) {
         mMine = mine;
-        SupportMapFragment mineMapFragment = new com.google.android.gms.maps.SupportMapFragment();
-        FragmentManager fm = getSupportFragmentManager();
-        fm.beginTransaction()
-                .add(R.id.master_frame, mineMapFragment)
-                .addToBackStack("map-view")
-                .commit();
-        mineMapFragment.getMapAsync(this);
+        Bundle mineBundle = mMine.asBundle();
+        Intent intent = new Intent(this, MineMapActivity.class);
+        intent.putExtras(mineBundle);
+        startActivity(intent);
+//        SupportMapFragment mineMapFragment = new com.google.android.gms.maps.SupportMapFragment();
+//        FragmentManager fm = getSupportFragmentManager();
+//        fm.beginTransaction()
+//                .add(R.id.master_frame, mineMapFragment)
+//                .addToBackStack("map-view")
+//                .commit();
+//        mineMapFragment.getMapAsync(this);
     }
 
     @Override

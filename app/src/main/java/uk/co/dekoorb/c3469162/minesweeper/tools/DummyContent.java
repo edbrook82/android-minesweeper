@@ -1,5 +1,6 @@
 package uk.co.dekoorb.c3469162.minesweeper.tools;
 
+import android.util.Log;
 import android.util.LongSparseArray;
 
 import java.util.ArrayList;
@@ -10,6 +11,8 @@ import java.util.Map;
 import uk.co.dekoorb.c3469162.minesweeper.model.Mine;
 
 public class DummyContent {
+
+    private static final String TAG = "DummyContent";
 
     /**
      * An array of sample (dummy) items.
@@ -26,6 +29,7 @@ public class DummyContent {
     static {
         for (Mine mine : MineGenerator.genMines(COUNT, 0.2)) {
             addItem(mine);
+            Log.d(TAG, "static initializer: " + mine);
         }
     }
 

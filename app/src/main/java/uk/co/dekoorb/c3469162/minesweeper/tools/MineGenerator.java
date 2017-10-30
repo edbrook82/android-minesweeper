@@ -25,7 +25,7 @@ public final class MineGenerator {
         } else if (prob == 1) {
             return true;
         } else if (prob > 0 && prob < 1) {
-            return Math.random() >= prob;
+            return Math.random() <= prob;
         } else {
             return false;
         }
