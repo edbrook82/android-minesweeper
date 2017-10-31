@@ -24,7 +24,7 @@ public class DummyContent {
      */
     public static final LongSparseArray<Mine> ITEM_MAP = new LongSparseArray<>();
 
-    private static final int COUNT = 20;
+    private static final int COUNT = 15;
 
     static {
         for (Mine mine : MineGenerator.genMines(COUNT, 0.25)) {

@@ -23,10 +23,6 @@ import uk.co.dekoorb.c3469162.minesweeper.tools.DummyContent;
  */
 public class MineFragment extends Fragment {
 
-    // TODO: Customize parameter argument names
-    private static final String ARG_COLUMN_COUNT = "column-count";
-    // TODO: Customize parameters
-    private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
 
     /**
@@ -36,23 +32,15 @@ public class MineFragment extends Fragment {
     public MineFragment() {
     }
 
-    // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static MineFragment newInstance(int columnCount) {
+    public static MineFragment newInstance() {
         MineFragment fragment = new MineFragment();
-        Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if (getArguments() != null) {
-            mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
-        }
     }
 
     @Override
@@ -64,11 +52,7 @@ public class MineFragment extends Fragment {
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-            }
+            recyclerView.setLayoutManager(new LinearLayoutManager(context));
             recyclerView.setAdapter(new MineRecyclerViewAdapter(DummyContent.ITEMS, mListener));
         }
         return view;
@@ -97,13 +81,8 @@ public class MineFragment extends Fragment {
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onListFragmentInteraction(Mine item);
     }
 }

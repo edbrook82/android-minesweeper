@@ -19,10 +19,7 @@ import uk.co.dekoorb.c3469162.minesweeper.model.GeoLocation;
 import uk.co.dekoorb.c3469162.minesweeper.model.Mine;
 
 public class MainActivity extends AppCompatActivity
-        implements MineFragment.OnListFragmentInteractionListener,
-        OnMapReadyCallback {
-
-    private Mine mMine;
+        implements MineFragment.OnListFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,25 +36,9 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onListFragmentInteraction(Mine mine) {
-        mMine = mine;
-        Bundle mineBundle = mMine.asBundle();
+        Bundle mineBundle = mine.asBundle();
         Intent intent = new Intent(this, MineMapActivity.class);
         intent.putExtras(mineBundle);
         startActivity(intent);
-//        SupportMapFragment mineMapFragment = new com.google.android.gms.maps.SupportMapFragment();
-//        FragmentManager fm = getSupportFragmentManager();
-//        fm.beginTransaction()
-//                .add(R.id.master_frame, mineMapFragment)
-//                .addToBackStack("map-view")
-//                .commit();
-//        mineMapFragment.getMapAsync(this);
-    }
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        GeoLocation loc = mMine.getGeoLocation();
-        LatLng mine = new LatLng(loc.getLatitude(), loc.getLongitude());
-        googleMap.addMarker(new MarkerOptions().position(mine).title("Mine"));
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mine, 17.0f));
     }
 }
