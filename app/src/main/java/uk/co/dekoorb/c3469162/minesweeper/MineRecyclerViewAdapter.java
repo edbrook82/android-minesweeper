@@ -38,7 +38,7 @@ public class MineRecyclerViewAdapter extends RecyclerView.Adapter<MineRecyclerVi
         holder.mItem = mValues.get(position);
         long id = mValues.get(position).getId();
         holder.mIdView.setText(Long.toString(id));
-        holder.mContentView.setText(mValues.get(position).getGeoLocation().toString());
+        holder.mContentView.setText(mValues.get(position).toString());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
