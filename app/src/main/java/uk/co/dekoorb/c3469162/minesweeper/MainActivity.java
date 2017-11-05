@@ -1,11 +1,9 @@
 package uk.co.dekoorb.c3469162.minesweeper;
 
-import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -27,6 +25,7 @@ public class MainActivity extends AppCompatActivity
 
     private Mine mMine;
     private GoogleMap mMap;
+    private SupportMapFragment mMapFrag;
     private boolean mDualMode = false;
 
     @Override
@@ -64,13 +63,15 @@ public class MainActivity extends AppCompatActivity
 //            Intent intent = new Intent(this, MineMapActivity.class);
 //            intent.putExtras(mineBundle);
 //            startActivity(intent);
-            SupportMapFragment mineMapFragment = new com.google.android.gms.maps.SupportMapFragment();
+            if (mMapFrag == null) {
+                mMapFrag = new com.google.android.gms.maps.SupportMapFragment();
+            }
             FragmentManager fm = getSupportFragmentManager();
             fm.beginTransaction()
-                .add(R.id.master_frame, mineMapFragment)
+                .add(R.id.master_frame, mMapFrag)
                 .addToBackStack("map-view")
                 .commit();
-            mineMapFragment.getMapAsync(this);
+            mMapFrag.getMapAsync(this);
         } else {
             LatLng mineLoc = new LatLng(
                     mMine.getGeoLocation().getLatitude(),
