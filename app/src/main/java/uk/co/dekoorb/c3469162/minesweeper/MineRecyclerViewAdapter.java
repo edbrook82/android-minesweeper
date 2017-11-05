@@ -14,7 +14,6 @@ import uk.co.dekoorb.c3469162.minesweeper.model.Mine;
 /**
  * {@link RecyclerView.Adapter} that can display a {@link Mine} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
- * TODO: Replace the implementation with code for your data type.
  */
 public class MineRecyclerViewAdapter extends RecyclerView.Adapter<MineRecyclerViewAdapter.ViewHolder> {
 
@@ -38,7 +37,7 @@ public class MineRecyclerViewAdapter extends RecyclerView.Adapter<MineRecyclerVi
         holder.mItem = mValues.get(position);
         long id = mValues.get(position).getId();
         holder.mIdView.setText(Long.toString(id));
-        holder.mContentView.setText(mValues.get(position).getGeoLocation().toString());
+        holder.mContentView.setText(mValues.get(position).toString());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override

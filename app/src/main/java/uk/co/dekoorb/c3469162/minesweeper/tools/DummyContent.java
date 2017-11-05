@@ -27,7 +27,7 @@ public class DummyContent {
     private static final int COUNT = 15;
 
     static {
-        for (Mine mine : MineGenerator.genMines(COUNT, 0.2)) {
+        for (Mine mine : MineGenerator.genMines(COUNT, 0.25)) {
             addItem(mine);
             Log.d(TAG, "static initializer: " + mine);
         }
